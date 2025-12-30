@@ -30,7 +30,7 @@ const contactInfo = [
 ];
 
 const socialMedia = [
-    { icon: FaFacebook, href: "https://www.facebook.com/profile.php?id=61577865651748", label: "Facebook" },
+    { icon: FaFacebook, href: "https://www.facebook.com/profile.php?id=61575884859111&mibextid=rS40aB7S9Ucbxw6v", label: "Facebook" },
     { icon: FaInstagram, href: "https://www.instagram.com/newnaturaloilcorporation?igsh=MXU2MTZzanFqNGkyZg==", label: "Instagram" },
     // { icon: IoCall, href: "tel:+09123456789", label: "Call" },
     // { icon: IoMailSharp, href: "mailto:newnaturaloilcorporation@gmail.com", label: "Mail" },
