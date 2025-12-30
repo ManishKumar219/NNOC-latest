@@ -6,13 +6,15 @@ export default function Gallery() {
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const API_GALLERY = import.meta.env.VITE_API_GALLERY;
+
   useEffect(() => {
     fetchImages();
   }, []);
 
   const fetchImages = async () => {
     try {
-      const response = await fetch("https://r2-worker.photoslisting.workers.dev");
+      const response = await fetch(API_GALLERY);
       
       const data = await response.json();
       const imageFiles = data.filter(item =>

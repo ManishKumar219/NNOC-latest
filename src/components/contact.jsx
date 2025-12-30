@@ -40,6 +40,9 @@ const socialMedia = [
 export default function Contact() {
     const form = useRef();
     const [status, setStatus] = useState('');
+    const PUBLIC_KEY = import.meta.env.VITE_CONTACT_PUBLIC_KEY;
+    const SERVICE_KEY = import.meta.env.VITE_CONTACT_SERVICE_KEY;
+    const TEMPLATE_KEY = import.meta.env.VITE_CONTACT_TEMPLATE_KEY;
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -47,11 +50,11 @@ export default function Contact() {
 
         emailjs
             .sendForm(
-                'service_t13hwib',
-                'template_1faff1g',
+                SERVICE_KEY,
+                TEMPLATE_KEY,
                 form.current,
                 {
-                    publicKey: 'oNJk2d5PJO6Rxj3y5',
+                    publicKey: PUBLIC_KEY,
                 }
             )
             .then(
@@ -82,6 +85,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     {/* Contact Information */}
                     <div>
+                        
                         <h3 className="text-3xl mb-4 mt-4 text-center">Contact Information</h3>
                         <p className="text-gray-600 mb-8 text-center">
                             Fill up the form and our team will get to you within 24 hours.
@@ -157,6 +161,7 @@ export default function Contact() {
 
                         {/* Social Media Icons */}
                         <div>
+                            
                             <p className="text-gray-600 mb-4">Connect with us:</p>
                             <div className="flex gap-4">
                                 {socialMedia.map((social, index) => (
@@ -175,6 +180,10 @@ export default function Contact() {
 
                     {/* Contact Form */}
                     <div className="bg-white rounded-xl shadow-lg p-8">
+                        {status&&
+                            <p className="text-center block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full mb-4 mx-auto">{status}</p>
+                        }
+                        
                         <form ref={form} className="space-y-6" onSubmit={sendEmail}>
                             <div className="block text-sm mb-2 text-gray-700">
                                 <div>
@@ -226,7 +235,7 @@ export default function Contact() {
                                     id="message"
                                     name="message"
                                     rows={6}
-                                    placeholder="Your message..."
+                                    placeholder="Your message... (Please add your contact information)"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent resize-none"
                                 ></textarea>
                             </div>

@@ -18,17 +18,17 @@ export default function Footer() {
             <h4 className="text-xl mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#about" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                <a href="/about" className="text-gray-400 hover:text-emerald-400 transition-colors">
                   About us
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                <a href="/gallery" className="text-gray-400 hover:text-emerald-400 transition-colors">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-400 hover:text-emerald-400 transition-colors">
+                <a href="/contact" className="text-gray-400 hover:text-emerald-400 transition-colors">
                   Contact
                 </a>
               </li>
@@ -42,7 +42,7 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="text-emerald-400 flex-shrink-0 mt-1" size={20} />
                 <p className="text-gray-400">
-                  Hasanganj, Jamalpur, Bihar 811214
+                  Hasanganj English, Jamalpur, Bihar 811214
                 </p>
               </div>
               <div className="flex items-start gap-2">

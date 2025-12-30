@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
+import image from "../assets/NNOC1.png";
+import image1 from "../assets/NNOC2.png";
+import image2 from "../assets/nnoc3.png";
+import image3 from "../assets/NNOC4.jpg";
+
 
 export function ImageSlider() {
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState([image, image1, image2, image3]);
   const [current, setCurrent] = useState(0);
+  const HERO_LIST_API = import.meta.env.VITE_API_HERO;
 
-  useEffect(() => {
-    fetchImages();
-  }, []);
+  // useEffect(() => {
+  //   fetchImages();
+  // }, []);
 
   // Autoplay
   useEffect(() => {
@@ -21,7 +27,7 @@ export function ImageSlider() {
 
   const fetchImages = async () => {
     try {
-      const res = await fetch("https://r2-worker.photoslisting.workers.dev");
+      const res = await fetch(HERO_LIST_API);
       const data = await res.json();
       const imageFiles = data.filter(item =>
         /\.(jpg|jpeg|png|webp|gif)$/i.test(item.url)
@@ -67,12 +73,12 @@ export function ImageSlider() {
 
 
         {/* Slides */}
-        <div className="relative h-56 md:h-96 overflow-hidden rounded-lg">
+        <div className="relative h-56 md:h-100 overflow-hidden rounded-lg">
           {images.map((image, index) => (
             <img
               key={index}
-              src={image.url}
-              alt={image.name || `Slide ${index + 1}`}
+              src={image}
+              alt={`Slide ${index + 1}`}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${index === current ? "opacity-100" : "opacity-0"
                 }`}
             />
