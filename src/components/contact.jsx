@@ -34,7 +34,7 @@ const socialMedia = [
     { icon: FaInstagram, href: "https://www.instagram.com/newnaturaloilcorporation?igsh=MXU2MTZzanFqNGkyZg==", label: "Instagram" },
     // { icon: IoCall, href: "tel:+09123456789", label: "Call" },
     // { icon: IoMailSharp, href: "mailto:newnaturaloilcorporation@gmail.com", label: "Mail" },
-    { icon: IoLogoWhatsapp, href: "#", label: "WhatsApp" }
+    { icon: IoLogoWhatsapp, href: "https://wa.me/9430241258", label: "WhatsApp" }
 ];
 
 export default function Contact() {
