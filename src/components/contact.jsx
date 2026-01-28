@@ -69,6 +69,36 @@ export default function Contact() {
             );
     };
 
+    const handleMessage = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const subject = form.subject?.value || "";
+        const message = form.message.value;
+
+        const phoneNumber = "9430241258"; // 🔴 Your WhatsApp Business number
+
+        const whatsappMessage = `
+*NEW NATURAL OIL CORPORATION*
+
+Name: ${name}
+Email: ${email}
+${subject ? `Subject: ${subject}\n` : ""}
+Message:
+${message}
+  `;
+
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+            whatsappMessage
+        )}`;
+
+        window.open(whatsappURL, "_blank");
+    };
+
+
     return (
         <section id="contact" className="py-20 bg-gray-50">
             <div className="container mx-auto px-4">
@@ -85,7 +115,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     {/* Contact Information */}
                     <div>
-                        
+
                         <h3 className="text-3xl mb-4 mt-4 text-center">Contact Information</h3>
                         <p className="text-gray-600 mb-8 text-center">
                             Fill up the form and our team will get to you within 24 hours.
@@ -161,7 +191,7 @@ export default function Contact() {
 
                         {/* Social Media Icons */}
                         <div>
-                            
+
                             <p className="text-gray-600 mb-4">Connect with us:</p>
                             <div className="flex gap-4">
                                 {socialMedia.map((social, index) => (
@@ -180,11 +210,11 @@ export default function Contact() {
 
                     {/* Contact Form */}
                     <div className="bg-white rounded-xl shadow-lg p-8">
-                        {status&&
+                        {status &&
                             <p className="text-center block px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full mb-4 mx-auto">{status}</p>
                         }
-                        
-                        <form ref={form} className="space-y-6" onSubmit={sendEmail}>
+
+                        <form ref={form} className="space-y-6" onSubmit={handleMessage}>
                             <div className="block text-sm mb-2 text-gray-700">
                                 <div>
                                     <label htmlFor="name" className="block text-sm mb-2 text-gray-700">
@@ -196,6 +226,7 @@ export default function Contact() {
                                         id="name"
                                         placeholder="Name"
                                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent"
+                                        required
                                     />
                                 </div>
 
@@ -211,6 +242,7 @@ export default function Contact() {
                                     id="email"
                                     placeholder="you@example.com"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent"
+                                    required
                                 />
                             </div>
 
@@ -224,6 +256,7 @@ export default function Contact() {
                                     name="title"
                                     placeholder="Question about Pricing"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent"
+
                                 />
                             </div>
 
@@ -237,6 +270,7 @@ export default function Contact() {
                                     rows={6}
                                     placeholder="Your message... (Please add your contact information)"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-transparent resize-none"
+                                    required
                                 ></textarea>
                             </div>
 
@@ -244,9 +278,10 @@ export default function Contact() {
                                 type="submit"
                                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-lg transition-colors"
                             >
-                                Send Message
+                                Chat on WhatsApp
                             </button>
                         </form>
+
                     </div>
                 </div>
 
